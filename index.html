@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>คุดสึ หม่าล่าทอด</title>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;500&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+   
+    body { font-family: 'Prompt', sans-serif; background: linear-gradient(180deg, #fdfdfd, #e9ecef); }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255,255,255,0.3);
+    }
+    .ios-button {
+      background: linear-gradient(135deg, #ffffff 0%, #f1f3f5 100%);
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .ios-button:hover {
+      background: linear-gradient(135deg, #e0e3e7 0%, #d1d6db 100%);
+    }
+    .badge {
+      position: absolute;
+      top: 0.5rem;
+      right: 0.5rem;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 9999px;
+      font-weight: 600;
+      color: white;
+    }
+    .badge.red { background-color: #f43f5e; }
+    .badge.green { background-color: #22c55e; }
+    .badge.blue { background-color: #3b82f6; }
+    .badge.yellow { background-color: #eab308; }
+  </style>
+</head>
+<body class="text-gray-800">
+
+ <header class="relative text-center pt-0 pb-4 z-10">
+  <img src="ปกร้าน.jpg" alt="พื้นหลังร้าน" class="absolute inset-0 w-full h-full object-cover opacity-40" />
+  <div class="relative z-10">
+    <img src="โลโก้1.png" alt="โลโก้ร้าน" class="mx-auto w-32 h-32 object-contain mb-1 rounded-3xl shadow-lg" />
+    <h1 class="text-2xl font-bold text-gray-800">🥓 คุดสึ หม่าล่าทอด</h1>
+    <p class="text-sm text-white">สดใหม่ทุกวัน ทอดร้อนๆ กรอบๆ</p>
+    <div id="store-status" class="mt-1"></div>
+    <a href="tel:0638350265" target="_blank" class="mt-3 px-5 py-2 rounded-full ios-button inline-block text-gray-800">
+      📞 ติดต่อสอบถาม
+    </a>
+  </div>
+</header>
+
+<!-- แกลเลอรีเมนูด้านบน -->
+<section class="container mx-auto px-4 mt-6">
+  <h2 class="text-lg font-semibold mb-4 text-center">📌 เมนูของเรา</h2>
+  <div class="flex flex-col md:flex-row gap-4 justify-center">
+    
+    <!-- เมนู 1 -->
+    <div class="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-lg">
+      <img src="เมนู 1.png" 
+           alt="เมนู 1" 
+           class="w-full h-auto object-cover transition-transform hover:scale-105" />
+    </div>
+    
+    <!-- เมนู 2 -->
+    <div class="w-full md:w-1/2 overflow-hidden rounded-2xl shadow-lg">
+      <img src="เมนู 2.png" 
+           alt="เมนู 2" 
+           class="w-full h-auto object-cover transition-transform hover:scale-105" />
+    </div>
+    
+  </div>
+</section>
+      
+<main class="pb-20">
+
+  <!-- เนื้ออละลูกชิ้น -->
+<h2 class="text-lg font-semibold mb-6 mt-12">🥩 เนื้อและลูกชิ้น</h2>
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+    <div class="glass rounded-2xl p-4 shadow-md relative">
+      <span class="badge bg-red-500 text-white">ขายดี</span>
+      <img src="หมูหั่นชิ้น.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+      <h3 class="font-medium text-gray-900 mb-1">หมูสามชั้น</h3>
+      <div class="flex justify-between items-center mt-auto">
+        <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+        <button onclick="addToCart('หมูสามชั้น', 5)" 
+                class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                       bg-green-500 backdrop-blur-sm shadow-md
+                       hover:bg-green-600 transition">
+          เพิ่ม
+        </button>
+      </div>
+    </div>
+
+
+<div class="glass rounded-2xl p-4 shadow-md relative">
+    <span class="badge bg-red-500 text-white">ขายดี</span>
+    <img src="สามชั้นสไลซ์.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+    <h3 class="font-medium text-gray-900 mb-1">สันคอหมู</h3>
+    <div class="flex justify-between items-center mt-auto">
+      <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+      <button onclick="addToCart('สันคอหมู', 5)" 
+              class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                     bg-green-500 backdrop-blur-sm shadow-md
+                     hover:bg-green-600 transition">
+        เพิ่ม
+      </button>
+    </div>
+  </div>
+    
+    
+  <div class="glass rounded-2xl p-4 shadow-md relative">
+    <span class="badge bg-red-500 text-white">ขายดี</span>
+    <img src="กุ้งขาว.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+    <h3 class="font-medium text-gray-900 mb-1">ไส้ใหญ่</h3>
+    <div class="flex justify-between items-center mt-auto">
+      <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+      <button onclick="addToCart('ไส้ใหญ่', 5)" 
+              class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                     bg-green-500 backdrop-blur-sm shadow-md
+                     hover:bg-green-600 transition">
+        เพิ่ม
+      </button>
+    </div>
+  </div>
+
+  <div class="glass rounded-2xl p-4 shadow-md relative">
+    <span class="badge bg-red-500 text-white">ขายดี</span>
+    <img src="ปลาหมึก.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+    <h3 class="font-medium text-gray-900 mb-1">ปูอัดแผ่น</h3>
+    <div class="flex justify-between items-center mt-auto">
+      <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+      <button onclick="addToCart('ปูอัดแผ่น', 5)" 
+              class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                     bg-green-500 backdrop-blur-sm shadow-md
+                     hover:bg-green-600 transition">
+        เพิ่ม
+      </button>
+    </div>
+  </div>
+
+  <div class="glass rounded-2xl p-4 shadow-md relative">
+    <img src="ตับหมู.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+    <h3 class="font-medium text-gray-900 mb-1">เต้าหู้ปลา</h3>
+    <div class="flex justify-between items-center mt-auto">
+      <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+      <button onclick="addToCart('เต้าหู้ปลา', 5)" 
+              class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                     bg-green-500 backdrop-blur-sm shadow-md
+                     hover:bg-green-600 transition">
+        เพิ่ม
+      </button>
+    </div>
+  </div>
+
+ <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ไส้หมู.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">ไส้กรอกแดง</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('ไส้กรอกแดง', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ปูอัด.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">โบโลน่าไก่</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('โบโลน่าไก่', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>    
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+ <span class="badge bg-red-500 text-white">ขายดี</span> 
+  <img src="ไส้กรอก.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">ปูอัดเมก้าแครบสอดไส้ชีส</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">10 บาท</span>
+    <button onclick="addToCart('ปูอัดเมก้าแครบสอดๆส้ชีส', 10)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>    
+    
+
+ <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+ <span class="badge bg-red-500 text-white">ขายดี</span> 
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">ไส้กรอกเชดดาร์ชีส</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">10 บาท</span>
+    <button onclick="addToCart('ไส้กรอกเชดดาร์ชีส', 10)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+  <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+<span class="badge bg-red-500 text-white">ขายดี</span>  
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">ต็อกอาเน่ชีส</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">15 บาท</span>
+    <button onclick="addToCart('ต็อกอาเน่ชีส', 15)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>   
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+ <span class="badge bg-red-500 text-white">ขายดี</span> 
+  <img src="หมูหั่นเต๋า.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">เต้าหู้ชีส</h3>
+  <p class="text-xs text-gray-500 mb-2">1 ชิ้น</p>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">15 บาท</span>
+    <button onclick="addToCart('เต้าหู้ชีส', 15)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+      </div>
+    </div>
+  </div>
+  
+</section>
+
+
+<h2 class="text-lg font-semibold mb-6 mt-12">🐟ปลา,กุ้ง,หมึก</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+ 
+  <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ผักบุ้งจีน.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">ปลาดอลลี่</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('ปลาดอลลี่', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ผักกาดขาว.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">คอหมึกยักษ์</h3>
+
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('คอหมึกยักษ์', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  <span class="badge bg-red-500 text-white">ขายดี</span>
+  <img src="เห็ดเข็มทอง.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">เนื้อท้องแซลมอล</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">15 บาท</span>
+    <button onclick="addToCart('เนื้อท้องแซลมอล', 15)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+ <span class="badge bg-red-500 text-white">ขายดี</span> 
+  <img src="วุ้นเส้น.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">กุ้ง</h3>
+  <p class="text-xs text-gray-500 mb-2">ไซส์ 31-40ตัวต่อกิโลกรัม</p>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">20 บาท</span>
+    <button onclick="addToCart('กุ้ง', 20)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+</div>
+
+    <!-- ผักและอื่นๆ -->
+  
+<h2 class="text-lg font-semibold mb-6 mt-12">🥦 ผักและอื่นๆ</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+ 
+ <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+<span class="badge bg-red-500 text-white">ขายดี</span>  
+  <img src="น้ำซุป.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">สามชั้นพันเห็ดเข็มทอง</h3>
+  
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('สามชั้นพันเห็ดเข็มทอง', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+<span class="badge bg-red-500 text-white">ขายดี</span>  
+  <img src="น้ำจิ้ม.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">สามชั้นพันบล็อคโคลี่</h3>
+  
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('สามชั้นพันบล็อคโคลี่', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+  <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">ข้าวโพดอ่อน</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('ข้าวโพดอ่อน', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+  </div> 
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">กระเจี๊ยบ</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('กระเจี๊ยบ', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">เห็ดออรินจิ</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('เห็ดออรินจิ', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+<span class="badge bg-red-500 text-white">ขายดี</span>  
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">เมล็ดข้าวโพดหวาน</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('เมล็ดข้าวโพดหวาน', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+ <span class="badge bg-red-500 text-white">ขายดี</span> 
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">มันฝรั่ง</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('มันฝรั่ง', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+ <span class="badge bg-red-500 text-white">ขายดี</span> 
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">เห็ดเข็มทอง</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('เห็ดเข็มทอง', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">หอมหัวใหญ่</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('หอมหัวใหญ่', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">ฟักทอง</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('ฟักทอง', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">บร็อคโคลี่</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('บร็อคโคลี่', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+   <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+ <span class="badge bg-red-500 text-white">ขายดี</span> 
+  <img src="ไข่ไก่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">สาหร่ายวากาเมะ</h3>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">5 บาท</span>
+    <button onclick="addToCart('สาหร่ายวากาเมะ', 5)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+   </div>
+
+</div>
+    
+    <!-- เครื่องดื่ม -->
+     
+<h2 class="text-lg font-semibold mb-6 mt-12">🥤 น้ำดื่มและเครื่องดื่ม</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+
+ <div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  <span class="badge bg-red-500 text-white">แนะนำ</span>
+  <img src="น้ำดื่ม.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">น้ำดื่ม ตราสิงห์</h3>
+  <p class="text-xs text-gray-500 mb-2">600 มิลลิลิตร</p>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">10 บาท</span>
+    <button onclick="addToCart('น้ำดื่มสิงห์ 600 มล.', 10)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  
+  <img src="เป๊ปซี่เล็ก.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">เป๊ปซี่ </h3>
+  <p class="text-xs text-gray-500 mb-2">กระป๋อง 245 มิลลิลิตร</p>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">15 บาท</span>
+    <button onclick="addToCart('เป๊ปซี่ 245 มล.', 15)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+<div class="glass rounded-2xl p-4 shadow-md relative flex flex-col">
+  <span class="badge bg-red-500 text-white">แนะนำ</span>
+  <img src="เป๊ปซี่ใหญ่.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
+  <h3 class="font-medium text-gray-900 mb-1">โค้ก ออริจินัล</h3>
+  <p class="text-xs text-gray-500 mb-2">กระป๋อง 325 มิลลิลิตร</p>
+  <div class="flex justify-between items-center mt-auto">
+    <span class="text-sm text-red-500 font-semibold">18 บาท</span>
+    <button onclick="addToCart('โค้ก 325 มล.', 18)" 
+            class="px-4 py-2 rounded-full text-white font-semibold text-sm
+                   bg-green-500 backdrop-blur-sm shadow-md
+                   hover:bg-green-600 transition">
+      เพิ่ม
+    </button>
+  </div>
+</div>
+
+
+</div>
+
+</div>
+  
+</div>    
+   
+</section>
+  
+<section class="relative w-full mt-6">
+  <!-- พื้นหลัง -->
+  <img src="ปกล่าง.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover" />
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-md"></div>
+
+  <!-- เนื้อหา -->
+  <div class="relative z-10 flex flex-col items-center justify-center px-4 py-8 text-center text-white">
+    <!-- ชื่อร้าน -->
+    <h2 class="text-lg font-bold">คุดสึ หม่าล่าทอด</h2>
+    <p class="text-sm text-gray-200">สด สะอาด กรอบ อร่อย คุ้มค่า</p>
+
+    <!-- ข้อมูลติดต่อ -->
+    <p class="text-sm text-gray-300 mt-2">📞 063-835-0265</p>
+    <p class="text-sm text-gray-300">🕐 เปิดบริการ 15:00 - 23:00</p>
+    <a href="https://maps.app.goo.gl/j49Y6LC82464oQtj9?g_st=ac9" target="_blank" 
+       class="text-xs text-blue-200 underline hover:text-blue-400 mt-1">
+      📍 ดูแผนที่ร้าน (Google Maps)
+    </a>
+
+    <!-- QR Code -->
+    <div class="flex flex-wrap justify-center gap-6 mt-6">
+      <!-- LINE -->
+      <div class="flex flex-col items-center w-32">
+        <div class="w-32 h-32 overflow-hidden rounded-2xl shadow-lg mb-2">
+          <img src="ไลน์ร้าน.png" alt="Line QR" class="w-full h-full object-cover" />
+        </div>
+        <a href="https://line.me/ti/p/CzZNQSp65p"_blank"
+           class="w-full h-10 text-sm bg-green-500 text-white rounded-full font-semibold flex items-center justify-center hover:bg-green-600 transition">
+          Line บัญชีทางการ
+        </a>
+      </div>
+
+      <!-- Facebook -->
+      <div class="flex flex-col items-center w-32">
+        <div class="w-32 h-32 overflow-hidden rounded-2xl shadow-lg mb-2">
+          <img src="เพจร้าน.png" alt="Facebook QR" class="w-full h-full object-cover" />
+        </div>
+        <a href="https://www.facebook.com/share/165URvnDe6/" target="_blank"
+           class="w-full h-10 text-sm bg-blue-500 text-white rounded-full font-semibold flex items-center justify-center hover:bg-blue-600 transition">
+          เพจ Facebook
+        </a>
+      </div>
+    </div>
+
+    <!-- Copyright -->
+    <p class="text-xs text-gray-300 text-center mt-6">
+      © 2026 คุดสึ หม่าล่าทอด | All Rights Reserved
+    </p>
+  </div>
+</section>
+
+
+
+</main>
+  
+<!-- ปุ่มตะกร้า -->
+<button onclick="toggleCart()" class="fixed bottom-10 right-6 bg-white ios-button text-gray-800 px-4 py-3 rounded-full shadow-md flex items-center justify-center">
+  🛒 
+  <span id="cart-count" style="
+    display:inline-block;
+    margin-left:6px;
+    background-color:#ef4444;
+    color:white;
+    font-weight:bold;
+    padding:2px 6px;
+    border-radius:9999px;
+    font-size:0.9rem;
+    box-shadow:0 2px 4px rgba(0,0,0,0.2);
+    min-width:20px;
+    text-align:center;
+  ">0</span>
+</button>
+
+  <!-- ป๊อปอัปตะกร้า -->
+<div id="cart-popup" class="fixed bottom-0 left-0 right-0 p-5 glass rounded-t-3xl shadow-xl max-h-[90vh] overflow-y-auto z-[9999] translate-y-full transition-transform duration-300 ease-in-out">
+
+  <h2 class="text-lg font-semibold text-gray-800 mb-3">🛒 ตะกร้าของคุณ</h2>
+
+  <!-- รายการสินค้า -->
+  <div id="cart-items" class="flex flex-col gap-3 text-gray-700"></div>
+
+ <!-- ยอดรวมทั้งหมด -->
+<p class="mt-3 font-semibold text-gray-800 text-right">
+  รวมทั้งหมด: <span id="cart-total">0</span> บาท
+</p>
+
+<!-- ปุ่มล้างตะกร้าทั้งหมด -->
+<button id="clear-cart-btn"
+    class="w-full mt-2 bg-red-500 text-white py-2 rounded-full font-semibold hover:bg-red-600 transition-colors">
+    ล้างตะกร้าทั้งหมด
+</button>
+
+<!-- ปุ่มตรวจสอบบิล -->
+<button onclick="toggleCart(); openOrderPopup()" 
+  class="w-full mt-3 bg-blue-500 text-white py-2 rounded-full font-semibold hover:bg-blue-600 transition-colors">
+  กดเพื่อตรวจสอบบิลก่อนสั่งซื้อ
+</button>
+
+<!-- ปุ่มปิดตะกร้า -->
+<button onclick="toggleCart()" class="w-full mt-2 bg-gray-100 py-2 rounded-full hover:bg-gray-200 transition-colors">
+  ปิดตะกร้า
+</button>
+
+</div
+
+
+</div>
+
+<!-- ป๊อปอัปบิลสวย -->
+  <div id="order-popup" class="fixed inset-0 bg-black/50 flex items-center justify-center p-4 overflow-y-auto hidden z-50">
+  <div class="glass rounded-2xl w-full max-w-md p-6 font-sans flex flex-col relative">
+    
+<!-- ส่วนบิลสำหรับบันทึก -->
+<div id="bill-only" class="flex-1 overflow-y-auto p-4">
+  <div class="text-center mb-4">
+    <div class="mx-auto w-20 h-20 aspect-square flex items-center justify-center">
+      <img src="โลโก้1.png" 
+           class="w-full h-full object-contain rounded-lg" 
+           alt="โลโก้ร้าน">
+    </div>
+
+    <h2 class="text-xl font-bold text-gray-800 mt-2">ร้านคุดสึ หม่าล่าทอด</h2>
+    <p class="text-xs text-gray-500">โทร: 063-835-0265</p>
+    <p class="text-xs text-gray-500">สาขา: ป่าแดด</p>
+    <p id="bill-datetime" class="text-xs text-gray-500"></p>
+  </div>
+  
+  <hr class="border-gray-300 mb-4">
+  <div id="order-items" class="text-sm text-gray-700 mb-4 text-left max-h-64 overflow-y-auto"></div>
+  <hr class="border-gray-300 mb-4">
+  <p class="text-lg font-semibold text-gray-800 text-center">
+    รวมทั้งหมด: <span id="order-total">0</span> บาท
+  </p>
+</div>
+
+
+
+    <!-- ปุ่มบันทึก -->
+    <div class="mt-4 space-y-2">
+      <button id="save-bill-btn" class="w-full bg-blue-500 text-white py-2 rounded-full">ขั้นตอนถัดไป</button>
+
+      <!-- ปุ่มแชร์ -->
+      <div id="share-buttons" class="space-y-2 hidden">
+        <a id="share-line" href="#" target="_blank" class="block w-full bg-green-500 text-white py-2 rounded-full text-center">
+           ไปที่ LINE ร้านเพื่อยื่นบิลสั่งออเดอร์
+        </a>
+        <a id="share-fb" href="#" target="_blank" class="block w-full bg-blue-700 text-white py-2 rounded-full text-center">
+           ไปที่ Facebook Page ร้านเพื่อยื่นบิลสั่งออเดอร์
+        </a>
+      </div>
+
+      <button onclick="closeOrderPopup()" class="w-full bg-gray-200 py-2 rounded-full">ปิด</button>
+    </div>
+
+  </div>
+</div>
+
+<script>
+function updateBillDateTime() {
+  const now = new Date();
+  const options = { 
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit', second: '2-digit',
+    hour12: false 
+  };
+  const formatted = now.toLocaleString('th-TH', options);
+  document.getElementById('bill-datetime').textContent = `วันที่/เวลา: ${formatted}`;
+}
+
+// อัปเดตทุก 1 วินาที
+setInterval(updateBillDateTime, 1000);
+
+// เรียกทันทีตอนโหลด
+updateBillDateTime();
+</script>
+
+   
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function addToCart(name, price){
+    const index = cart.findIndex(item => item.name === name);
+    if(index > -1) cart[index].qty++;
+    else cart.push({name, price, qty:1});
+    navigator.vibrate?.(100);
+    new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_367157d7cf.mp3').play();
+    updateCart();
+  }
+
+  function removeFromCart(index){
+    cart.splice(index,1);
+    updateCart();
+  }
+
+function updateCart(){
+  localStorage.setItem('cart', JSON.stringify(cart));
+  const list = document.getElementById('cart-items');
+  const count = document.getElementById('cart-count');
+  const total = document.getElementById('cart-total');
+  list.innerHTML = '';
+  let sum = 0;
+
+  cart.forEach((item, i) => {
+    sum += item.price * item.qty;
+
+    const row = document.createElement('div');
+    row.className = "flex items-center justify-between p-2 border-b border-gray-200 rounded-md hover:bg-gray-50 transition";
+
+   row.innerHTML = `
+  <div class="flex items-center justify-between w-full">
+    <!-- ชื่อสินค้า -->
+    <span class="font-medium text-sm text-gray-800 flex-1 truncate pr-2">
+      ${item.name}
+    </span>
+
+    <!-- ปุ่ม + / - และราคา -->
+    <div class="flex items-center gap-2 flex-shrink-0">
+      <!-- ปุ่มบวก -->
+      <button onclick="addItem(${i})" 
+        class="w-8 h-8 flex items-center justify-center rounded-full bg-green-500 text-white font-bold text-sm hover:bg-green-600 transition">
+        +
+      </button>
+
+      <!-- จำนวน -->
+      <span id="item-qty-${i}" class="text-gray-800 font-semibold w-6 text-center">
+        ${item.qty}
+      </span>
+
+      <!-- ปุ่มลบ -->
+      <button onclick="removeItem(${i})" 
+        class="w-8 h-8 flex items-center justify-center rounded-full bg-red-500 text-white font-bold text-sm hover:bg-red-600 transition">
+        -
+      </button>
+
+      <!-- ราคา -->
+      <span class="font-semibold text-gray-700 text-sm w-12 text-right">
+        ${item.price * item.qty}฿
+      </span>
+    </div>
+  </div>
+`;
+
+
+    list.appendChild(row);
+  });
+
+  count.textContent = cart.reduce((a,b) => a+b.qty, 0);
+  total.textContent = sum;
+}
+
+
+
+// ฟังก์ชันเพิ่ม/ลดสินค้า
+function addItem(i){
+  cart[i].qty++;
+  updateCart();
+}
+
+function removeItem(i){
+  cart[i].qty--;
+  if(cart[i].qty <= 0) cart.splice(i,1);
+  updateCart();
+}
+
+// เปิดเผยฟังก์ชันให้เรียกใช้ใน HTML
+window.addItem = addItem;
+window.removeItem = removeItem;
+
+// --- เพิ่มปุ่มล้างตะกร้า ---  
+document.getElementById('clear-cart-btn').addEventListener('click', () => {
+  if(confirm('คุณแน่ใจว่าจะล้างตะกร้าทั้งหมด?')){
+    cart = [];
+    updateCart();
+  }
+});
+
+
+function toggleCart(){
+  const popup = document.getElementById('cart-popup');
+  if(popup.classList.contains('translate-y-full')){
+    // เปิด popup
+    popup.classList.remove('translate-y-full');
+    document.body.style.overflow = "hidden"; // ✅ ล็อกการเลื่อนหน้าเว็บหลัก
+  } else {
+    // ปิด popup
+    popup.classList.add('translate-y-full');
+    document.body.style.overflow = ""; // ✅ ปลดล็อกให้เลื่อนเว็บหลักได้ตามปกติ
+  }
+}
+
+function openOrderPopup(){
+  if(cart.length === 0){
+    alert('ตะกร้าของคุณว่างอยู่ กรุณาเพิ่มสินค้าใส่ตะกร้าก่อนทำการสั่งซื้อ');
+    return;
+  }
+
+  const orderItems = document.getElementById('order-items');
+  const orderTotal = document.getElementById('order-total');
+  orderItems.innerHTML = '';
+  let sum = 0;
+
+  cart.forEach(item=>{
+    sum += item.price*item.qty;
+    const li = document.createElement('div');
+    li.className = 'flex justify-between mb-1';
+    const nameSpan = document.createElement('span');
+    nameSpan.textContent = `${item.name} x ${item.qty}`;
+    const priceSpan = document.createElement('span');
+    priceSpan.textContent = `${item.price*item.qty} บาท`;
+    li.appendChild(nameSpan);
+    li.appendChild(priceSpan);
+    orderItems.appendChild(li);
+  });
+
+  orderTotal.textContent = sum;
+
+  // เปิด popup
+  const popup = document.getElementById('order-popup');
+  popup.classList.remove('hidden');
+
+  // ป้องกัน scroll หน้าเว็บหลัก
+  document.body.style.overflow = 'hidden';
+}
+
+function closeOrderPopup(){
+  const popup = document.getElementById('order-popup');
+  popup.classList.add('hidden');
+
+  // คืนค่า scroll หน้าเว็บหลัก
+  document.body.style.overflow = '';
+}
+
+
+
+document.getElementById('save-bill-btn').addEventListener('click', () => {
+  const billDiv = document.getElementById('bill-only');
+  const orderItems = document.getElementById('order-items');
+
+  const oldMaxHeight = orderItems.style.maxHeight;
+  const oldOverflow = orderItems.style.overflowY;
+
+  orderItems.style.maxHeight = 'none';
+  orderItems.style.overflowY = 'visible';
+
+  html2canvas(billDiv, { scrollY: -window.scrollY, scale: 2 }).then(canvas => {
+    const dataUrl = canvas.toDataURL();
+
+    const popup = document.createElement('div');
+    popup.style.position = 'fixed';
+    popup.style.top = '0';
+    popup.style.left = '0';
+    popup.style.width = '100%';
+    popup.style.height = '100%';
+    popup.style.background = 'rgba(0,0,0,0.65)';
+    popup.style.display = 'flex';
+    popup.style.alignItems = 'center';
+    popup.style.justifyContent = 'center';
+    popup.style.zIndex = '9999';
+    popup.style.padding = '16px';
+
+    popup.innerHTML = `
+      <div style="
+        background: rgba(255,255,255,0.95);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 16px;
+        max-width: 480px;
+        width: 100%;
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+        overflow: hidden;
+      ">
+        <!-- แถบแจ้งเตือน -->
+        <div style="background:#ff4d4d; color:#fff; padding:8px; text-align:center; font-weight:600; font-size:13px; flex-shrink:0;">
+          กรุณาบันทึกบิลเก็บไว้ก่อนทุกครั้ง ก่อนส่งบิลให้ร้านค้า
+        </div>
+
+        <!-- พื้นที่เลื่อนเนื้อหา -->
+        <div style="flex:1; overflow-y:auto; padding:14px; text-align:center;">
+          <h2 style="font-size:16px; font-weight:700; margin-bottom:10px; color:#222;">🧾 บิลยืนยันคำสั่งซื้อ</h2>
+
+          <!-- คำอธิบาย -->
+          <div style="font-size:12px; color:#333; text-align:left; margin-bottom:10px; line-height:1.4;">
+            <p>📱 <strong style="color:#007aff;">Android</strong> → กดปุ่ม "บันทึกบิล"</p>
+            <p>🍎 <strong style="color:#ff3b30;">IOS / iPhone</strong> → แตะค้างที่รูปบิล แล้วกดดาวน์โหลดรูปภาพ</p>
+            <p style="margin-top:4px; color:#ff3b30;">⚠ หากพบปัญหาในการบันทึกบิล แนะนำให้ปิดเว็บไซต์นี้ด้วย Google Chrome </p>
+          </div>
+
+          <!-- รูปบิลใหญ่ -->
+          <div style="flex:1; overflow-y:auto; border-radius:12px; border:1px solid #eee; margin-bottom:10px;">
+           <img src="${dataUrl}" style="width:70%; display:block; margin:0 auto;">
+          </div>
+        </div>
+
+        <!-- ปุ่มคงที่ด้านล่าง -->
+        <div style="padding:12px; border-top:1px solid #ddd; background:rgba(255,255,255,0.95); flex-shrink:0; display:flex; flex-direction:column; gap:10px;">
+          <a href="${dataUrl}" download="bill-${Date.now()}.png" style="
+            display:flex; align-items:center; justify-content:center;
+            width:100%; padding:12px;
+            background:#007aff; color:#fff; border-radius:9999px;
+            font-weight:600; text-decoration:none; font-size:14px;
+          ">💾 บันทึกบิล (Android)</a>
+
+          <a href="https://line.me/ti/p/CzZNQSp65p" target="_blank" style="
+            display:flex; align-items:center; justify-content:center;
+            width:100%; padding:12px;
+            background:#00c300; color:#fff; border-radius:9999px;
+            font-weight:600; text-decoration:none; font-size:14px;
+          ">📩 ส่งบิลด้วย LINE </a>
+
+          <a href="https://www.facebook.com/share/1D6zFpm9V6/" target="_blank" style="
+            display:flex; align-items:center; justify-content:center;
+            width:100%; padding:12px;
+            background:#1877f2; color:#fff; border-radius:9999px;
+            font-weight:600; text-decoration:none; font-size:14px;
+          ">📩 ส่งบิลด้วย Facebook </a>
+
+          <button id="close-bill-popup" style="
+            display:flex; align-items:center; justify-content:center;
+            width:100%; padding:12px;
+            background:#e0e0e0; color:#333; border:none; border-radius:9999px;
+            font-weight:600; font-size:14px;
+          ">❌ ปิดหน้านี้</button>
+        </div>
+      </div>
+    `;
+
+    // ปุ่มปิด popup
+    popup.querySelector('#close-bill-popup').onclick = () => {
+      document.body.removeChild(popup);
+    };
+
+    document.body.appendChild(popup);
+
+    // คืนค่า style เดิม
+    orderItems.style.maxHeight = oldMaxHeight;
+    orderItems.style.overflowY = oldOverflow;
+  });
+});
+
+
+  function checkStoreStatus(){
+    const now = new Date();
+    const hour = now.getHours();
+    const statusEl = document.getElementById("store-status");
+    const openTime = 13, closeTime = 24;
+    if(hour >= openTime && hour < closeTime){
+      statusEl.textContent = "🟢 ร้านเปิดอยู่ (เวลาทำการ 15.00 - 23.00 น.)";
+      statusEl.className = "inline-block px-4 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium shadow-sm";
+    }else{
+      statusEl.textContent = "🔴 ร้านปิดอยู่ (เวลาทำการ 15.00 - 23.00 น.)";
+      statusEl.className = "inline-block px-4 py-1 rounded-full bg-red-100 text-red-700 text-sm font-medium shadow-sm";
+    }
+  }
+
+  updateCart();
+  checkStoreStatus();
+  function addToCart(name, price) {
+  const now = new Date();
+  const hour = now.getHours();
+  const openTime = 01;
+  const closeTime = 22;
+
+  // ถ้าร้านปิด ให้แจ้งเตือนและไม่ให้เพิ่มของ
+  if (hour < openTime || hour >= closeTime) {
+    alert("🚫 ขออภัยขณะนี้ร้านปิดอยู่\nติดต่อสอบถาม 0638350265");
+    return;
+  }
+
+  // ถ้าร้านเปิด ดำเนินการตามปกติ
+  const index = cart.findIndex(item => item.name === name);
+  if (index > -1) {
+    cart[index].qty++;
+  } else {
+    cart.push({ name, price, qty: 1 });
+  }
+  navigator.vibrate?.(100);
+  new Audio('https://cdn.pixabay.com/audio/2022/03/15/audio_367157d7cf.mp3').play();
+  updateCart();
+}
+
+// Expose functions globally
+  window.addToCart = addToCart;
+  window.removeFromCart = removeFromCart;
+  window.toggleCart = toggleCart;
+  window.openOrderPopup = openOrderPopup;
+  window.closeOrderPopup = closeOrderPopup;
+});
+  
+
+window.addEventListener('load', () => {
+  // สร้าง overlay
+  const overlay = document.createElement('div');
+  overlay.style.position = 'fixed';
+  overlay.style.top = 0;
+  overlay.style.left = 0;
+  overlay.style.width = '100%';
+  overlay.style.height = '100%';
+  overlay.style.background = 'rgba(0,0,0,0.5)'; // พื้นหลังมืดโปร่งใส
+  overlay.style.display = 'flex';
+  overlay.style.alignItems = 'center';
+  overlay.style.justifyContent = 'center';
+  overlay.style.zIndex = '9999';
+
+  // กล่องคำแนะนำ
+  const box = document.createElement('div');
+  box.style.background = 'rgba(255,255,255,0.8)';
+  box.style.backdropFilter = 'blur(12px)';
+  box.style.borderRadius = '16px';
+  box.style.padding = '20px';
+  box.style.maxWidth = '300px';
+  box.style.textAlign = 'center';
+  box.style.color = '#000';
+  box.style.boxShadow = '0 4px 20px rgba(0,0,0,0.25)';
+
+  box.innerHTML = `
+    <h2 style="font-size:18px; font-weight:600; margin-bottom:10px;">🔔 คำแนะนำ</h2>
+    <p style="font-size:14px; line-height:1.4; margin:0;">
+      เพื่อการใช้งานที่ดีที่สุด แนะนำให้เปิดเว็บไซต์นี้ด้วย <b>Google Chrome</b>
+    </p>
+    <button style="
+      margin-top:16px;
+      padding:8px 16px;
+      border:none;
+      border-radius:12px;
+      background:#3b82f6;
+      color:#fff;
+      cursor:pointer;
+      font-size:14px;
+      font-weight:600;
+      transition: background 0.3s;
+    ">เข้าใจแล้ว</button>
+  `;
+
+  // ปิด overlay เมื่อกดปุ่ม
+  box.querySelector('button').onclick = () => overlay.remove();
+
+  overlay.appendChild(box);
+  document.body.appendChild(overlay);
+});
+
+
+</script>
+
+</body>
+
+</html>
