@@ -234,7 +234,7 @@
  <span class="badge bg-red-500 text-white">ขายดี</span> 
   <img src="เต้าหู้ชีส.jpg" class="rounded-3xl mb-3 w-full h-auto object-cover" />
   <h3 class="font-medium text-gray-900 mb-1">เต้าหู้ชีส</h3>
-  <p class="text-xs text-gray-500 mb-2">1 ชิ้น</p>
+
   <div class="flex justify-between items-center mt-auto">
     <span class="text-sm text-red-500 font-semibold">15 บาท</span>
     <button onclick="addToCart('เต้าหู้ชีส', 15)" 
@@ -1037,7 +1037,7 @@ document.getElementById('save-bill-btn').addEventListener('click', () => {
     const now = new Date();
     const hour = now.getHours();
     const statusEl = document.getElementById("store-status");
-    const openTime = 13, closeTime = 24;
+    const openTime = 15, closeTime = 23;
     if(hour >= openTime && hour < closeTime){
       statusEl.textContent = "🟢 ร้านเปิดอยู่ (เวลาทำการ 15.00 - 23.00 น.)";
       statusEl.className = "inline-block px-4 py-1 rounded-full bg-green-100 text-green-700 text-sm font-medium shadow-sm";
@@ -1052,8 +1052,8 @@ document.getElementById('save-bill-btn').addEventListener('click', () => {
   function addToCart(name, price) {
   const now = new Date();
   const hour = now.getHours();
-  const openTime = 01;
-  const closeTime = 22;
+  const openTime = 15;
+  const closeTime = 23;
 
   // ถ้าร้านปิด ให้แจ้งเตือนและไม่ให้เพิ่มของ
   if (hour < openTime || hour >= closeTime) {
